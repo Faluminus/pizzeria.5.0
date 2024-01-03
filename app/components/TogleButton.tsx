@@ -16,7 +16,7 @@ const Switcher3 = ({ text, onPercentageChange }: Switcher3Props) => {
   };
 
   return (
-          <div className="flex justify-end">
+          <div className="flex justify-end my-2">
               <span className="label-text">{text}</span>
               <input
                   type="checkbox"
