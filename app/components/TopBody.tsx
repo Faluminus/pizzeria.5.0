@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState,FC } from "react";
 import ProgressBar from "./ProgressBar";
 import Radio from "./Radio";
 import Switcher3 from "./TogleButton";
@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 import Button from "./FormHandleButton";
 
 
-const TopBody = () => {
+const TopBody:FC = () => {
   const [percentage, setPercentage] = useState(0);
   const handlePercentageChange = (newPercentage: number) => {
     setPercentage(newPercentage + percentage);
@@ -31,22 +31,10 @@ const TopBody = () => {
     AlfredoSauce: false,
     Anchovies: false,
   });
-  const WhatToSave = (event: React.FormEvent) => {
-    event.preventDefault();
-    for (const key in formData) {
-      if (formData.hasOwnProperty(key)) {
-        if (formData[key as keyof typeof formData] === true) {
-          Cookies.set(key, formData[key as keyof typeof formData].toString(), {
-            expires: 7,
-          });
-        }
-      }
-    }
-  };
 
   return (
     <toggleContext.Provider value={percentage}>
-      <form className="flex justify-center" method="post" onSubmit={WhatToSave}>
+      <form className="flex justify-center" method="post" action="http://localhost:8000/formhandle.php">
         <div className="grid grid-cols-2 form-control h-full w-5/6">
           <div className="flex flex-col text-center mx-10">
             <div className="">
@@ -63,13 +51,13 @@ const TopBody = () => {
                   <div className="flex flex-row justify-center">
                     <div className="grid grid-cols-3 align-middle">
                       <div className="mx-5">
-                        <Radio checked={false} val="small" />
+                        <Radio checked={false} name="size" val="small" />
                       </div>
                       <div className="mx-5">
-                        <Radio checked={false} val="medium" />
+                        <Radio checked={false} name="size" val="medium" />
                       </div>
                       <div className="mx-5">
-                        <Radio checked={false} val="large" />
+                        <Radio checked={false} name="size" val="large" />
                       </div>
                     </div>
                   </div>
@@ -85,35 +73,35 @@ const TopBody = () => {
                   <div className="flex justify-center">
                     <div>
                       <Switcher3
-                        text="Pepperoni"
+                        text="pepperoni"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Bacon"
+                        text="bacon"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Chicken"
+                        text="chicken"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Mushrooms"
+                        text="mushrooms"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Tomatoes"
+                        text="tomatoes"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Jalapeños"
+                        text="jalapeños"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Pineapple"
+                        text="pineapple"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Spinach"
+                        text="spinach"
                         onPercentageChange={handlePercentageChange}
                       />
                     </div>
@@ -121,35 +109,35 @@ const TopBody = () => {
                   <div className="flex justify-center">
                     <div>
                       <Switcher3
-                        text="Mozzarella"
+                        text="mozzarella"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Gorgonzola"
+                        text="gorgonzola"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Cheddar"
+                        text="cheddar"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Feta"
+                        text="feta"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Basil"
+                        text="basil"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Parsley"
+                        text="parsley"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="AlfredoSauce"
+                        text="alfredoSauce"
                         onPercentageChange={handlePercentageChange}
                       />
                       <Switcher3
-                        text="Anchovies"
+                        text="anchovies"
                         onPercentageChange={handlePercentageChange}
                       />
                     </div>

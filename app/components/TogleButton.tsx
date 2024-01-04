@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React,{useState,FC}  from 'react';
 
 interface Switcher3Props {
   text: string;
   onPercentageChange: (newPercentage: number) => void;
 }
 
-const Switcher3 = ({ text, onPercentageChange }: Switcher3Props) => {
+const Switcher3:FC<Switcher3Props> = ({ text, onPercentageChange }: Switcher3Props) => {
   const [percentage, setPercentage] = useState(0);
 
   const toggleValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,6 +21,7 @@ const Switcher3 = ({ text, onPercentageChange }: Switcher3Props) => {
               <input
                   type="checkbox"
                   name={text}
+                  value = {text}
                   className="toggle mx-3"
                   onChange={toggleValue}
               />

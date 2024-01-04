@@ -1,4 +1,5 @@
-const Swapper = () => {
+import React, {FC} from "react";
+const Swapper:FC = () => {
   return (
     <label className="swap swap-rotate">
       <input type="checkbox" className="theme-controller" value="synthwave" />

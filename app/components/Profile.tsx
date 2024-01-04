@@ -1,9 +1,9 @@
 'use client';
-import { useState } from "react";
+import { useState,FC } from "react";
 
 
 
-const Profile = () => {
+const Profile:FC = () => {
   const [Login,SetLogin] = useState(false);
   if(Login){
     return (

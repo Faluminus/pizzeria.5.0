@@ -1,9 +1,10 @@
 import Cart from "./Cart";
 import Profile from "./Profile";
+import {FC} from "react";
 
 
 
-const Navbar = () => {
+const Navbar:FC = () => {
   return (
     <div className="h-40">
       <div className="flex justify-center">

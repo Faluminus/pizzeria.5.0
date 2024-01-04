@@ -1,9 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, FC, useEffect } from "react";
 
-const Cart = () => {
+const Cart: FC = () => {
   const [Count, SetCount] = useState(0);
+  useEffect(() => {
+    let pizza = "";
+    const cookies = document.cookie.split(";");
+    cookies.forEach(function (value) {
+      if (value.split("=")[0] == "openname") {
+        pizza = decodeURIComponent(value.split("=")[1]);
+      }
+    });
+
+    let numberOfPizzas = pizza.split("]").length - 1;
+
+    SetCount(numberOfPizzas);
+  });
   return (
     <>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -33,11 +46,7 @@ const Cart = () => {
           <span className="font-bold text-lg">{Count} Items</span>
           <span className="text-info">Subtotal: $999</span>
           <div className="card-actions">
-            <a
-              className="btn btn-primary btn-block"
-            >
-              View cart
-            </a>
+            <a className="btn btn-primary btn-block">View cart</a>
           </div>
         </div>
       </div>

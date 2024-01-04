@@ -1,6 +1,10 @@
+import React, {FC} from "react";
 
+interface Props{
+  percentage:number;
+}
 
-const ProgressBar = ({percentage}:{percentage:number}) => {
+const ProgressBar:FC<Props> = ({percentage}:Props) => {
 
   if(percentage > 100){
     return (
